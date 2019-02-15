@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordWrapKata", "WordWrapKata\WordWrapKata.csproj", "{24CE253E-956C-4EB5-A939-7B14AE8F80B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordWrap", "WordWrap\WordWrap.csproj", "{3B5C3044-6D97-414B-A2BF-8F9C45F2CC90}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24CE253E-956C-4EB5-A939-7B14AE8F80B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24CE253E-956C-4EB5-A939-7B14AE8F80B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24CE253E-956C-4EB5-A939-7B14AE8F80B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24CE253E-956C-4EB5-A939-7B14AE8F80B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B5C3044-6D97-414B-A2BF-8F9C45F2CC90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B5C3044-6D97-414B-A2BF-8F9C45F2CC90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B5C3044-6D97-414B-A2BF-8F9C45F2CC90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B5C3044-6D97-414B-A2BF-8F9C45F2CC90}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {74713E81-91EE-49C8-8DC5-A54539AE0DB7}
+	EndGlobalSection
+EndGlobal
