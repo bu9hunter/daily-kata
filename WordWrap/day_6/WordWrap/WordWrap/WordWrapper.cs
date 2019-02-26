@@ -12,30 +12,45 @@ namespace WordWrap
         {
             string resultString = "";
             string wrappedString = "";
-            string temp = "";
+            string remainString = "";
             int lastSpacePosition = 0;
-            int startPosition = 0;
+            int length = 0;
 
             if (limit > inputText.Length)
             {
                 return inputText;
             }
 
-            while (limit < inputText.Length)
-            {
-                lastSpacePosition = inputText.Substring(startPosition, limit).LastIndexOf(" ");
+            remainString = inputText;
 
-                if (lastSpacePosition < limit)
+            while (remainString.Length > limit)
+            {
+                lastSpacePosition = remainString.Substring(0, limit).LastIndexOf(" ");
+
+                if (lastSpacePosition == -1)
                 {
-                    wrappedString += inputText.Substring(startPosition, lastSpacePosition);
+                    wrappedString += remainString.Substring(0, limit);
+                    length = wrappedString.Length;
                     wrappedString += "--";
-                    wrappedString += inputText.Substring(lastSpacePosition + 1, inputText.Length - lastSpacePosition - 1);
-                    startPosition += limit;
-                    limit += limit;
+                }
+                else if (lastSpacePosition < limit)
+                {
+                    wrappedString += remainString.Substring(0, lastSpacePosition);
+                    length = wrappedString.Length;
+                    wrappedString += "--";
+                }
+
+                if (lastSpacePosition == -1)
+                {
+                    remainString = remainString.Substring(limit, remainString.Length - limit);
+                }
+                else
+                {
+                    remainString = remainString.Substring(lastSpacePosition + 1, remainString.Length - length - 1);
                 }
             }
             
-            return wrappedString;
+            return wrappedString + remainString;
         }
     }
 }
