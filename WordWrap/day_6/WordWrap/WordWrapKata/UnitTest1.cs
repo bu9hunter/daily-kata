@@ -38,6 +38,7 @@ namespace WordWrapKata
             Assert.AreEqual(expectedString, wrappedString);
         }
 
+        [TestMethod]
         public void 한단어_길이가_줄바꿈_길이보다_클때()
         {
             //given
