@@ -15,9 +15,52 @@ namespace BowlingGame
         public int Score()
         {
             int score = 0;
-            for (int i = 0; i < rolls.Length; i++)
-                score += rolls[i];
+            int frameIndex = 0;
+            for (int frame = 0; frame < 10; frame++)
+            {
+                if (isStrike(frameIndex))
+                {
+                    score += strikeBounus(frameIndex);
+                    frameIndex++;
+                }
+                else if (isSpare(frameIndex))
+                {
+                    score += 10 + spareBonus(frameIndex);
+                    frameIndex += 2;
+                }
+                else
+                {
+                    score += sumOfBallsInFrame(frameIndex);
+                    frameIndex += 2;
+                }
+            }
+
             return score;
+        }
+
+        private bool isStrike(int frameIndex)
+        {
+            return rolls[frameIndex] == 10;
+        }
+
+        private int sumOfBallsInFrame(int frameIndex)
+        {
+            return rolls[frameIndex] + rolls[frameIndex + 1];
+        }
+
+        private int spareBonus(int frameIndex)
+        {
+            return rolls[frameIndex + 2];
+        }
+
+        private int strikeBounus(int frameIndex)
+        {
+            return 10 + rolls[frameIndex + 1] + rolls[frameIndex + 2];
+        }
+
+        private bool isSpare(int frameIndex)
+        {
+            return rolls[frameIndex] + rolls[frameIndex + 1] == 10;
         }
     }
 }
