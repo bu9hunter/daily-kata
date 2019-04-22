@@ -11,19 +11,40 @@ namespace SudokuSolver
 
         public int[,] solve(ref int[,] matrix, int size)
         {
-            for (int i = 0; i < size; i++)
-            {
-                for (int j = 0; j < size; j++)
-                {
-                    bool[] checkNumber = new bool[size];
+            bool bCompleted = false;
 
-                    if (isBlank(matrix, i, j))
+            while (!bCompleted)
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    for (int j = 0; j < size; j++)
                     {
-                        checkRow(matrix, size, i, ref checkNumber);
-                        checkColumn(matrix, size, j, ref checkNumber);
-                        fillOutBlank(matrix, size, i, j, checkNumber);
+                        bool[] checkNumber = new bool[size];
+
+                        if (isBlank(matrix, i, j))
+                        {
+                            checkRow(matrix, size, i, ref checkNumber);
+                            checkColumn(matrix, size, j, ref checkNumber);
+                            fillOutBlank(matrix, size, i, j, checkNumber);
+                        }
                     }
                 }
+
+                int blankCount = 0;
+
+                for (int i = 0; i < size; i++)
+                {
+                    for (int j = 0; j < size; j++)
+                    {
+                        if (isBlank(matrix, i, j))
+                        {
+                            blankCount++;
+                        }
+                    }
+                }
+
+                if (blankCount == 0)
+                    bCompleted = true;
             }
 
             return matrix;
