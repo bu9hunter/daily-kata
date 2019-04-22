@@ -36,6 +36,18 @@ namespace SudokuSolver
 
         private static void fillOutBlank(int[,] matrix, int size, int i, int j, bool[] checkNumber)
         {
+            int blankCount = 0;
+            for (int checkIdx = 0; checkIdx < size; checkIdx++)
+            {
+                if (checkNumber[checkIdx] == false)
+                {
+                    blankCount++;
+                }
+            }
+
+            if (blankCount > 1)
+                return;
+
             for (int checkIdx = 0; checkIdx < size; checkIdx++)
             {
                 if (checkNumber[checkIdx] == false)
