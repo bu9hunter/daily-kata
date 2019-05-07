@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 
 namespace SudokuSolver
 {
     public class SudokuGameSolver
     {
+        int[,] orignalMatrix = new int[9, 9];
+        int loopCount = 0;
+
         public SudokuGameSolver()
         {
         }
@@ -13,7 +17,8 @@ namespace SudokuSolver
         {
             while (!isCompleted(matrix, size))
             {
-                fillOutBlankByCheckingRowColumn(matrix, size);
+                // Only Support matrix3by3
+                //fillOutBlankByCheckingRowColumn(matrix, size);
 
                 for (int i = 0; i < size; i++)
                 {
@@ -25,14 +30,40 @@ namespace SudokuSolver
                         {
                             checkRow(matrix, size, i, ref checkNumber);
                             checkColumn(matrix, size, j, ref checkNumber);
-                            checkMatrix3by3(matrix, size, i, j, ref checkNumber);
+
+                            if (size == 9)
+                            {
+                                checkMatrix3by3(matrix, size, i, j, ref checkNumber);
+                            }
+
                             fillOutBlank(matrix, size, i, j, checkNumber);
                         }
                     }
                 }
+
+                if (loopCount > 1 && isDuplicated(matrix, size)) break;
+                
+                Array.Copy(matrix, orignalMatrix, matrix.Length);
+                loopCount++;
             }
 
             return matrix;
+        }
+
+        private bool isDuplicated(int[,] matrix, int size)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    if (orignalMatrix[i , j] != matrix[i, j])
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
 
         private static void fillOutBlankByCheckingRowColumn(int[,] matrix, int size)
@@ -55,6 +86,11 @@ namespace SudokuSolver
 
         private static bool isCompleted(int[,] matrix, int size)
         {
+            return CalculateBlank(matrix, size) == 0;
+        }
+
+        private static int CalculateBlank(int[,] matrix, int size)
+        {
             int blankCount = 0;
 
             for (int i = 0; i < size; i++)
@@ -63,15 +99,13 @@ namespace SudokuSolver
                 {
                     if (isBlank(matrix, i, j))
                     {
+                        System.Diagnostics.Debug.WriteLine("matrix[{0},{1}] is Blank", i, j);
                         blankCount++;
                     }
                 }
             }
 
-            if (blankCount == 0)
-                return true;
-
-            return false;
+            return blankCount;
         }
 
         private static bool isBlank(int[,] matrix, int i, int j)
@@ -133,6 +167,23 @@ namespace SudokuSolver
             int startColumn = 0;
             int endColumn = 0;
 
+            SetRowColumnPosition(i, j, ref startRow, ref endRow, ref startColumn, ref endColumn);
+
+            for (int startRowIdx = startRow; startRowIdx < endRow; startRowIdx++)
+            {
+                for (int startColumnIdx = startColumn; startColumnIdx < endColumn; startColumnIdx++)
+                {
+                    int value = matrix[startRowIdx, startColumnIdx];
+                    if (value != 0)
+                    {
+                        checkNumber[value - 1] = true;
+                    }
+                }
+            }
+        }
+
+        private static void SetRowColumnPosition(int i, int j, ref int startRow, ref int endRow, ref int startColumn, ref int endColumn)
+        {
             if (i < 3)
             {
                 startRow = 0;
@@ -163,18 +214,6 @@ namespace SudokuSolver
             {
                 startColumn = 6;
                 endColumn = 9;
-            }
-
-            for (int startRowIdx = startRow; startRowIdx < endRow; startRowIdx++)
-            {
-                for (int startColumnIdx = startColumn; startColumnIdx < endColumn; startColumnIdx++)
-                {
-                    int value = matrix[startRowIdx, startColumnIdx];
-                    if (value != 0)
-                    {
-                        checkNumber[value - 1] = true;
-                    }
-                }
             }
         }
     }
