@@ -15,11 +15,10 @@ namespace SudokuSolver
 
         public int[,] solve(ref int[,] matrix, int size)
         {
+            int solveCount = 0;
+
             while (!isCompleted(matrix, size))
             {
-                // Only Support matrix3by3
-                //fillOutBlankByCheckingRowColumn(matrix, size);
-
                 for (int i = 0; i < size; i++)
                 {
                     for (int j = 0; j < size; j++)
@@ -31,23 +30,52 @@ namespace SudokuSolver
                             checkRow(matrix, size, i, ref checkNumber);
                             checkColumn(matrix, size, j, ref checkNumber);
 
-                            if (size == 9)
+                            if (isMatrix9by9(size))
                             {
                                 checkMatrix3by3(matrix, size, i, j, ref checkNumber);
                             }
 
-                            fillOutBlank(matrix, size, i, j, checkNumber);
+                            if (loopCount > 1)
+                            {
+                                loopCount = 0;
+                                fillOutBlankWithExpectedValue(matrix, size, i, j, checkNumber);
+                            }
+                            else
+                            {
+                                fillOutBlank(matrix, size, i, j, checkNumber);
+                            }
                         }
                     }
                 }
 
-                if (loopCount > 1 && isDuplicated(matrix, size)) break;
+                //if (loopCount > 1 && isDuplicated(matrix, size)) break;
                 
                 Array.Copy(matrix, orignalMatrix, matrix.Length);
                 loopCount++;
+
+                solveCount++;
             }
 
+            System.Diagnostics.Debug.WriteLine("Solve Count = {0}", solveCount);
+
             return matrix;
+        }
+
+        private static bool isMatrix9by9(int size)
+        {
+            return size == 9;
+        }
+
+        private void fillOutBlankWithExpectedValue(int[,] matrix, int size, int i, int j, bool[] checkNumber)
+        {
+            for (int checkIdx = 0; checkIdx < size; checkIdx++)
+            {
+                if (checkNumber[checkIdx] == false)
+                {
+                    matrix[i, j] = checkIdx + 1;
+                    checkNumber[checkIdx] = true;
+                }
+            }
         }
 
         private bool isDuplicated(int[,] matrix, int size)
