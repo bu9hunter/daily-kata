@@ -243,42 +243,42 @@ namespace SudokuSolverTest
         }
 
 
-        //[TestMethod]
-        //public void SolveMatrix9by9_Q4()
-        //{
-        //    int[,] matrix9by9 = new int[,]
-        //    {
-        //        {0, 0, 3,  9, 0, 2,  0, 5, 0},
-        //        {0, 0, 0,  0, 6, 0,  3, 0, 0},
-        //        {0, 0, 0,  3, 0, 0,  0, 0, 4},
+        [TestMethod]
+        public void SolveMatrix9by9_Q6()
+        {
+            int[,] matrix9by9 = new int[,]
+            {
+                {0, 0, 3,  9, 0, 2,  0, 5, 0},
+                {0, 0, 0,  0, 6, 0,  3, 0, 0},
+                {0, 0, 0,  3, 0, 0,  0, 0, 4},
 
-        //        {0, 6, 7,  0, 0, 0,  5, 9, 0},
-        //        {5, 0, 4,  0, 9, 0,  1, 0, 3},
-        //        {0, 8, 9,  0, 0, 0,  7, 4, 0},
+                {0, 6, 7,  0, 0, 0,  5, 9, 0},
+                {5, 0, 4,  0, 9, 0,  1, 0, 3},
+                {0, 8, 9,  0, 0, 0,  7, 4, 0},
 
-        //        {4, 0, 0,  0, 0, 7,  0, 0, 0},
-        //        {0, 0, 5,  0, 2, 0,  0, 0, 0},
-        //        {0, 3, 0,  6, 0, 1,  4, 0, 0}
-        //    };
+                {4, 0, 0,  0, 0, 7,  0, 0, 0},
+                {0, 0, 5,  0, 2, 0,  0, 0, 0},
+                {0, 3, 0,  6, 0, 1,  4, 0, 0}
+            };
 
-        //    int[,] answerForMatrix9by9 = new int[,]
-        //    {
-        //        {4, 3, 5,  9, 6, 1,  2, 7, 8},
-        //        {7, 6, 9,  4, 8, 2,  3, 1, 5},
-        //        {1, 2, 8,  3, 5, 7,  9, 4, 6},
+            int[,] answerForMatrix9by9 = new int[,]
+            {
+                {8, 4, 3,  9, 7, 2,  6, 5, 1},
+                {9, 5, 2,  1, 6, 4,  3, 8, 7},
+                {6, 7, 1,  3, 8, 5,  9, 2, 4},
 
-        //        {9, 5, 4,  8, 1, 6,  7, 2, 3},
-        //        {3, 1, 2,  5, 7, 9,  6, 8, 4},
-        //        {8, 7, 6,  2, 3, 4,  1, 5, 9},
+                {1, 6, 7,  2, 4, 3,  5, 9, 8},
+                {5, 2, 4,  7, 9, 8,  1, 6, 3},
+                {3, 8, 9,  5, 1, 6,  7, 4, 2},
 
-        //        {6, 8, 7,  1, 9, 5,  4, 3, 2},
-        //        {5, 4, 1,  6, 2, 3,  8, 9, 7},
-        //        {2, 9, 3,  7, 4, 8,  5, 6, 1}
-        //    };
+                {4, 9, 6,  8, 3, 7,  2, 1, 5},
+                {7, 1, 5,  4, 2, 9,  8, 3, 6},
+                {2, 3, 8,  6, 5, 1,  4, 7, 9}
+            };
 
-        //    SudokuGameSolver sgs = new SudokuGameSolver();
+            SudokuGameSolver sgs = new SudokuGameSolver();
 
-        //    CollectionAssert.AreEqual(answerForMatrix9by9, sgs.solve(matrix: ref matrix9by9, size: matrix9by9.GetLength(1)));
-        //}
+            CollectionAssert.AreEqual(answerForMatrix9by9, sgs.solve(matrix: ref matrix9by9, size: matrix9by9.GetLength(1)));
+        }
     }
 }

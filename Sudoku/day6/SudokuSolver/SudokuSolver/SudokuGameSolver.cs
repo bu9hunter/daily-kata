@@ -48,10 +48,12 @@ namespace SudokuSolver
                     }
                 }
 
-                //if (loopCount > 1 && isDuplicated(matrix, size)) break;
-                
+                if (solveCount > 1 && isDuplicated(matrix, size))
+                {
+                    loopCount++;
+                }
+
                 Array.Copy(matrix, orignalMatrix, matrix.Length);
-                loopCount++;
 
                 solveCount++;
             }
