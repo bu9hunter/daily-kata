@@ -8,6 +8,8 @@ namespace SudokuSolver
     {
         int[,] orignalMatrix = new int[9, 9];
         int loopCount = 0;
+        int prevRowIdx = 0;
+        int prevColumnIdx = 0;
 
         public SudokuGameSolver()
         {
@@ -76,6 +78,8 @@ namespace SudokuSolver
                 {
                     matrix[i, j] = checkIdx + 1;
                     checkNumber[checkIdx] = true;
+                    System.Diagnostics.Debug.WriteLine("matrix[{0},{1}] = EV({2})", i, j, matrix[i, j]);
+                    //return;
                 }
             }
         }
@@ -155,13 +159,17 @@ namespace SudokuSolver
             }
 
             if (blankCount > 1)
+            {
+                System.Diagnostics.Debug.WriteLine("matrix[{0},{1}] = SKIP", i, j);
                 return;
+            }
 
             for (int checkIdx = 0; checkIdx < size; checkIdx++)
             {
                 if (checkNumber[checkIdx] == false)
                 {
                     matrix[i, j] = checkIdx + 1;
+                    System.Diagnostics.Debug.WriteLine("matrix[{0},{1}] = {2}", i, j, matrix[i, j]);
                 }
             }
         }
