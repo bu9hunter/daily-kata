@@ -1,7 +1,7 @@
-# daily-kata
+ï»¿# daily-kata
 
-¸ÅÀÏ 30ºĞ¾¿ ÄÚµù ÈÆ·Ã ( 30 minutes every day coding training!)
+ë§¤ì¼ 30ë¶„ì”© ì½”ë”© í›ˆë ¨ ( 30 minutes every day coding training!)
 
-## ¹®Á¦ : Regular Expression Matching
+## Regular Expression Matching
 
 * https://leetcode.com/problems/regular-expression-matching/description/
