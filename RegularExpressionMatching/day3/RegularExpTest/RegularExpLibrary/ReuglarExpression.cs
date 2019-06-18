@@ -11,29 +11,36 @@ namespace RegularExpLibrary
         public bool isMatch(string text, string pattern)
         {
             int idx = 0;
-            string temp;
+            bool result = false; ;
 
-            if (hasWildCardChar(pattern))
+            char[] patternArray = pattern.ToCharArray();
+
+            if (hasSpecialChar(pattern))
             {
-                foreach (char element in pattern)
+                foreach (char ch in text)
                 {
-                    
-                    if (element.Equals("."))
-                    {
-                        
-                    }
-                    else if (element.Equals("*"))
+                    for (; idx < text.Length; idx++)
                     {
 
-                    }
-                    else
-                    {
+                        if (patternArray[idx] == '.')
+                        {
+                            result = true;
+                        }
+                        else if (patternArray[idx] =='*')
+                        {
+                            result = false;
+                        }
+                        else
+                        {
+                            result = patternArray[idx] == ch;
+                        }
 
+                        idx++;
+                        break;
                     }
-
-                    idx++;
                 }
-                return false;
+                
+                return result;
             }
             else
             {
@@ -41,7 +48,7 @@ namespace RegularExpLibrary
             }
         }
 
-        private static bool hasWildCardChar(string pattern)
+        private static bool hasSpecialChar(string pattern)
         {
             return pattern.Contains(".") || pattern.Contains("*");
         }
