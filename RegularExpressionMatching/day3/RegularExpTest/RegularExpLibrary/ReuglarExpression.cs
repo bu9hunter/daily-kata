@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace RegularExpLibrary
 {
@@ -14,6 +16,7 @@ namespace RegularExpLibrary
             bool result = false; ;
 
             char[] patternArray = pattern.ToCharArray();
+            List<char> CompareText = new List<char>();
 
             if (hasSpecialChar(pattern))
             {
@@ -24,23 +27,30 @@ namespace RegularExpLibrary
 
                         if (patternArray[idx] == '.')
                         {
-                            result = true;
+                            // result = true;
+                            CompareText.Add(ch);
                         }
                         else if (patternArray[idx] =='*')
                         {
-                            result = false;
+                            //result = patternArray[idx - 1] == ch;
+                            //CompareText.Add()
                         }
                         else
                         {
-                            result = patternArray[idx] == ch;
+                            //result = patternArray[idx] == ch;
+                            CompareText.Add(ch);
                         }
 
                         idx++;
                         break;
                     }
                 }
+
+                string temp = CompareText.ToString();
+
+                return CompareText.ToString().Equals(text);
                 
-                return result;
+                //return result;
             }
             else
             {

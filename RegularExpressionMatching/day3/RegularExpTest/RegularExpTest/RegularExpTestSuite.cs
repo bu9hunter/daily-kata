@@ -160,5 +160,19 @@ namespace RegularExpTest
             //then
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public void _11_글자패턴1개_Asterisk패턴1개_매칭확인하기()
+        {
+            //given
+            string text = "aaa";
+            string pattern = "a*";
+
+            //when
+            bool result = regExp.isMatch(text, pattern);
+
+            //then
+            Assert.IsTrue(result);
+        }
     }
 }
