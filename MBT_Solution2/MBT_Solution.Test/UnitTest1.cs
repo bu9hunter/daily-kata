@@ -72,18 +72,6 @@ namespace MBT_Solution.Test
             Assert.AreEqual(3, rootTreeNode.right.val);
         }
 
-        //[TestMethod]
-        //public void leftRootNode2()
-        //{
-        //    int[] inputArray = new int[] { 1, 3, 5 };
-        //    var mbt = new MBT();
-        //    var rootTreeNode = mbt.ConstructMaximumBinaryTree(inputArray);
-
-        //    Assert.AreEqual(5, rootTreeNode.val);
-        //    Assert.AreEqual(1, rootTreeNode.left.val);
-        //    Assert.IsNull(rootTreeNode.right);
-        //}
-
         [TestMethod]
         public void leftandrightRootNode()
         {
@@ -96,16 +84,24 @@ namespace MBT_Solution.Test
             Assert.AreEqual(3, rootTreeNode.right.val);
         }
 
-        //[TestMethod]
-        //public void leftandrightRootNode2()
-        //{
-        //    int[] inputArray = new int[] { 1, 2, 5, 3, 6 };
-        //    var mbt = new MBT();
-        //    var rootTreeNode = mbt.ConstructMaximumBinaryTree(inputArray);
+        [TestMethod]
+        public void leftandrightRootNode2()
+        {
+            int[] inputArray = new int[] { 1, 2, 5, 3, 4};
+            var mbt = new MBT();
+            var rootTreeNode = mbt.ConstructMaximumBinaryTree(inputArray);
 
-        //    Assert.AreEqual(5, rootTreeNode.val);
-        //    Assert.AreEqual(1, rootTreeNode.left.val);
-        //    Assert.AreEqual(3, rootTreeNode.right.val);
-        //}
+            Assert.AreEqual(5, rootTreeNode.val);
+            Assert.AreEqual(2, rootTreeNode.left.val);
+            Assert.AreEqual(4, rootTreeNode.right.val);
+            Assert.AreEqual(1, rootTreeNode.left.left.val);
+            Assert.IsNull(rootTreeNode.left.right);
+            Assert.AreEqual(3, rootTreeNode.right.left.val);
+            Assert.IsNull(rootTreeNode.right.right);
+            Assert.IsNull(rootTreeNode.left.left.left);
+            Assert.IsNull(rootTreeNode.left.left.right);
+            Assert.IsNull(rootTreeNode.right.left.left);
+            Assert.IsNull(rootTreeNode.right.left.right);
+        }
     }
 }

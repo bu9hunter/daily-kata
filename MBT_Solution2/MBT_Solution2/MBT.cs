@@ -20,15 +20,19 @@ namespace MBT_Solution2
 
             if (inputArray.Length > 1)
             {
-                if (getMaxIndex(inputArray) < (inputArray.Length - 1))
+                int[] leftArray = inputArray.Take(getMaxIndex(inputArray)).ToArray();
+
+                if (leftArray.Length != 0)
                 {
-                    node.right = new TreeNode(inputArray[getMaxIndex(inputArray) + 1]);
+                    node.left = ConstructMaximumBinaryTree(leftArray);
                 }
 
-                if (getMaxIndex(inputArray) > 0)
+                int[] rightArray = inputArray.Skip(getMaxIndex(inputArray) + 1).ToArray();
+
+                if (rightArray.Length != 0)
                 {
-                    node.left = new TreeNode(inputArray[getMaxIndex(inputArray) - 1]);   
-                }            
+                    node.right = ConstructMaximumBinaryTree(rightArray);
+                }          
             }
 
             return node;
