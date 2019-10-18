@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaxAreaOfIslandTest", "MaxAreaOfIslandTest\MaxAreaOfIslandTest.csproj", "{1646EC00-B0B0-4872-B731-03295113E160}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaxAreaOfIsland", "MaxAreaOfIsland\MaxAreaOfIsland.csproj", "{442AAB87-CEF5-4F8F-8FDE-0AD6FF0F816A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1646EC00-B0B0-4872-B731-03295113E160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1646EC00-B0B0-4872-B731-03295113E160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1646EC00-B0B0-4872-B731-03295113E160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1646EC00-B0B0-4872-B731-03295113E160}.Release|Any CPU.Build.0 = Release|Any CPU
+		{442AAB87-CEF5-4F8F-8FDE-0AD6FF0F816A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{442AAB87-CEF5-4F8F-8FDE-0AD6FF0F816A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{442AAB87-CEF5-4F8F-8FDE-0AD6FF0F816A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{442AAB87-CEF5-4F8F-8FDE-0AD6FF0F816A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1075A16F-9119-44C5-88BC-83F887C72B6C}
+	EndGlobalSection
+EndGlobal
