@@ -28,7 +28,7 @@ namespace MaxAreaOfIsland
                         if (i - 1 >= 0)
                         {
                             if (grid[i - 1][j] == 1) islandCount++;
-                        } 
+                        }
 
                         // 하 방향 찾기
                         if (i + 1 <= grid.Length - 1)
@@ -57,5 +57,7 @@ namespace MaxAreaOfIsland
 
             return maxIslandCount;
         }
+
+        private int fi
     }
 }
